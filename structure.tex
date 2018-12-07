@@ -1,0 +1,40 @@
+%----------------------------------------------------------------------------------------
+
+% pacotes usados
+\usepackage[top=1cm,left=1cm,right=1cm,bottom=1cm]{geometry} % muda as margens
+
+\usepackage[utf8]{inputenc} % para caracteres internacionais
+
+\usepackage[T1]{fontenc} % Output para fontes internacionais
+
+\usepackage{flowfram} % para o layout de duas colunas
+
+\usepackage{enumitem} % para modificar listas
+
+\usepackage{tikz} % para a regua vertical
+
+% define a sidebar
+\newflowframe{0.2\textwidth}{\textheight}{0pt}{0pt}[left]
+\newlength{\LeftMainSep}
+\setlength{\LeftMainSep}{0.2\textwidth}
+\addtolength{\LeftMainSep}{1\columnsep}
+
+\setlength{\columnsep}{\baselineskip} % define o espaço entre as colunas
+
+% frame estatico para a linha vertical
+\newstaticframe{1.5pt}{\textheight}{\LeftMainSep}{0pt}
+
+% conteudo da linha vertical statica
+\begin{staticcontents}{1}
+	\hfill
+	\tikz{\draw[line width=1pt,yshift=0](0,0) -- (0,\textheight);}
+\hfill\mbox{}
+\end{staticcontents}
+
+% define a parte direita ( o principal )
+\addtolength{\LeftMainSep}{1.5pt}
+\addtolength{\LeftMainSep}{1\columnsep}
+\newflowframe{0.7\textwidth}{\textheight}{\LeftMainSep}{0pt}[main01]
+
+\pagestyle{empty} % tira a numeração de pagina
+\setlength{\parindent}{0pt} % retira a identação de paragrafo
